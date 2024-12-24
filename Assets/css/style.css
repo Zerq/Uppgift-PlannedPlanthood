@@ -52,7 +52,7 @@ figcaption {
 }
 
 /* for container queries, landmarks as containers */
-body > :is(header, footer),
+body> :is(header, footer),
 main {
   container-type: inline-size;
 }
@@ -78,8 +78,12 @@ main {
   --clr-green-100: hsl(169, 11%, 93%);
   --clr-green-200: hsl(169, 51%, 58%);
   --clr-green-400: hsl(169, 86%, 28%);
+
   --clr-green-800: hsl(169, 86%, 12%);
   --clr-green-900: hsl(169, 80%, 12%);
+
+
+
 
   --clr-robust: hsl(221, 63%, 32%);
   --clr-green: hsl(110, 63%, 32%);
@@ -141,7 +145,7 @@ main {
 }
 
 /* Composition */
-.flow > * + * {
+.flow>*+* {
   margin-block-start: var(--flow-space, 1em);
 }
 
@@ -176,4 +180,83 @@ body {
   font-family: var(--font-base);
   background-color: var(--clr-accent-light-1);
   color: var(--clr-primary-dark);
+
+}
+
+body>header {
+
+  svg {
+    min-width: calc(var(--fs-500) * 2);
+    min-height: calc(var(--fs-500) * 2);
+    max-width: calc(var(--fs-500) * 2);
+    max-height: calc(var(--fs-500) * 2);
+
+
+
+    margin: var(--fs-500);
+  }
+
+  svg path {
+    stroke: var(--clr-green-400);
+  }
+
+  background-color: var(--clr-neutral-100);
+  display: flex block;
+  font-weight: var(--fw-500);
+  font-size: var(--fs-500);
+  color: var(--clr-green-400);
+  align-items: center;
+
+  h1 {
+
+    padding: var(--fs-400);
+    margin-right: auto;
+
+    span {
+      display: block;
+    }
+
+
+  }
+
+
+  nav {
+    display: contents;
+
+    ul {
+      display: contents;
+      list-style: none;
+
+      li {
+        padding: var(--fs-400);
+        display: block;
+        margin-inline: auto;
+
+      }
+
+      li:first-child {
+        margin-left: 15vw;
+      }
+
+      li:last-child {
+        margin-right: 15vw;
+      }
+    }
+
+    button {
+      display: none;
+      margin: var(--fs-500);
+
+    }
+  }
+}
+
+@container (width < 650px) {
+  body>header>nav>button {
+    display: block;
+  }
+
+  body>header>nav>ul>li {
+    display: none;
+  }
 }

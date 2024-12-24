@@ -1,3 +1,39 @@
+________________________________Installation of my version of this assignment________________________________
+
+
+npm install
+dotnet tool restore 
+(requires dotnet cli to be installed)
+
+
+the react folder and the tsxfix.cs and tsxfix.csx file handle TSX support. 
+the jsx-runtime file is originally form and is under ISC license technically which is not the most ideal open source licence but it should roughtly be compatible with gpl with some unintentional caveats i think...  might rewrite this entierly later since i tinkered with it extensivly wantng to build out mny own component base for use with my own frontend framework.
+this is just purely the minimal to get tsx support with out a lot of muchy babel junk.
+
+https://dev.to/devsmitra/how-to-create-the-app-using-jsx-without-react-k08
+
+_____________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # FE24 - Inlämningsuppgift Planned Planthood
 
 Uppgiften är att göra en sida enligt nedanståend bilder, text och kod-stycken.<br>
