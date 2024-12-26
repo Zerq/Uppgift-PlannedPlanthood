@@ -1,5 +1,9 @@
 import { Plant, PlantTemplate, ToElm } from "./plant.js";
 export function run() {
+    let logo = document.getElementById("logo");
+    let style = window.getComputedStyle(document.body);
+    let color = style.getPropertyValue("--clr-green-400");
+    logo.setAttribute("color", color);
     const data = Plant.ParseList(`Blommor
         Ätbart
         Grönska
