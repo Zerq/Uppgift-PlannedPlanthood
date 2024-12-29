@@ -104,6 +104,8 @@ main {
   --fw-700: 700;
   --fw-800: 800;
   --fw-900: 900;
+
+  --fs-10: 0.1rem;
   --fs-25: 0.2rem;
   --fs-50: 0.3125rem;
   --fs-100: 0.625rem;
@@ -202,6 +204,14 @@ body {
 body>header {
 
 
+  a:hover,
+  a:focus-visible {
+    color: var(--clr-green-400);
+    text-decoration: underline;
+  }
+
+
+
 
   background-color: var(--clr-neutral-100);
   display: flex block;
@@ -209,6 +219,13 @@ body>header {
   font-size: var(--fs-500);
   color: var(--clr-green-400);
   align-items: center;
+
+  a[href="#home"]{
+    display: flex;
+    align-items: center;
+  }
+
+
 
   h1 {
 
@@ -258,6 +275,7 @@ body>header {
 #appreachiationSection {
   text-align: center;
 
+  
   h2 {
     margin-top: var(--fs-900);
     padding-bottom: var(--fs-400);
@@ -303,6 +321,59 @@ section>section.gallery {
 
 }
 
+.specialHide{
+  overflow:hidden;
+  height: 1px;
+  width: 1px;         
+}
+
+
+button, a.button {
+  flex-basis: fit-content;
+  border-radius: var(--fs-400);
+  padding: var(--fs-50);
+  margin: var(--fs-50);
+  border: dashed var(--fs-25)  transparent;
+  background-color: var(--clr-green-400);
+  color: white;
+}
+
+
+ 
+a:focus-visible,
+a:focus
+ {
+  outline: none !important;
+  flex-basis: fit-content  !important;
+  padding: var(--fs-50);
+  margin: var(--fs-50);
+  border:dashed var(--fs-25) var(--clr-green-400)  !important;
+
+  color: var(--clr-green-400)  !important;
+}
+
+
+
+button:focus-visible,
+button:focus,
+a.button:focus-visible,
+a.button:focus {
+  outline: none !important;
+}
+
+a.button:focus-visible,
+a.button:focus,
+button:focus-visible,
+button:focus {
+  flex-basis: fit-content  !important;
+  padding: var(--fs-50);
+  margin: var(--fs-50);
+  border:dashed var(--fs-25) var(--clr-green-400)  !important;
+  background-color: var(--clr-neutral-100)  !important;
+  color: var(--clr-green-400)  !important;
+
+}
+
 
 
 
@@ -316,55 +387,81 @@ section#emailFormSeciton {
     justify-content: space-around;
     align-items: center;
     margin-inline: auto;
-    width: clamp(15rem 40rem 40rem);
+    width: clamp(20rem, 50vw, 40rem);
+  }
 
-    h2 {
+  h2 {
 
-      grid-area: 1 / 1 / span 1 / span 1;
-      padding: var(--fs-400);
+    grid-area: 1 / 1 / span 1 / span 1;
+    padding: var(--fs-400);
+
+  }
+
+  img {
+    grid-area: 1 / 2 / span 2 / span 1;
+    background-color: var(--clr-green-400);
+    border-radius: 50%;
+    padding: var(--fs-600);
+    min-width: 14rem;
+  }
+
+  form {
+    grid-area: 2 / 1 / span 1 / span 1;
+    display: flex;
+    border: solid var(--fs-25) var(--clr-neutral-300);
+    border-radius: var(--fs-700);
+    height: fit-content;
+
+    input {
+
+      flex-grow: 1;
+      padding-left: var(--fs-400);
+      border: 0;
+      background-color: transparent;
+      outline: none;
 
     }
 
-    img {
-      grid-area: 1 / 2 / span 2 / span 1;
+    button {
+      flex-basis: fit-content;
+      border-radius: var(--fs-400);
+      padding: var(--fs-50);
+      margin: var(--fs-50);
+      border: dashed var(--fs-25)  transparent;
       background-color: var(--clr-green-400);
-      border-radius: 50%;
-      padding: var(--fs-700);
-      width: 10rem;
-    }
-
-    form {
-      grid-area: 2 / 1 / span 1 / span 1;
-      display: flex;
-      border: solid var(--fs-25) black;
-      border-radius: var(--fs-700);
-      height: fit-content;
-
-      input {
-
-        flex-grow: 1;
-        padding-left: var(--fs-400);
-        border: 0;
-        background-color: transparent;
-
-
-      }
-
-      button {
-        flex-basis: fit-content;
-        border-radius: var(--fs-400);
-        padding: var(--fs-100);
-        margin: var(--fs-500);
-        border: 0;
-        background-color: var(--clr-green-400);
-        color: white;
-      }
+      color: white;
     }
   }
+
+  form input:focus-visible,
+  form input:focus {
+    outline: none;
+  }
+
+  form:has(input:focus-visible),
+  form:has(input:focus) {
+    border: dashed var(--fs-25)  var(--clr-green-400);
+   
+    
+  }
+
+
+
+
+
+
+
+  
+
+ 
+
+
 }
 
 
 #plantsSection {
+  width: 80vw;
+  margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: var(--fs-400);
@@ -378,79 +475,190 @@ section#emailFormSeciton {
     border-top: 0;
     border-radius: var(--fs-25);
 
-    header img {
-aspect-ratio: 1/1.2;
+    
+    header picture {
+        aspect-ratio: 1/1.2;
+        width: 100%;
+        height: 100%; 
+        position: relative;
+        img { 
+          display: block;
+          aspect-ratio: 1/1.2;
+          width: 100%;
+          height: 100%;
+          }    
+    
+          div {    
+         
+            position: absolute;
+            background-image: url("/Assets/images/icon-seedling.svg");
+            background-size: auto;
+            background-repeat: no-repeat;
+            opacity: 0.5;
+            background-position: center;
+            background-size: 70%;
+            background-blend-mode: hard-light;
+            display: block;
+            aspect-ratio: 1/1.2;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+                
+          }      
+        }
+      }
+    }    
+ 
 
+
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      color: var(--clr-neutral-100);
+      padding: var(--fs-100);
+      padding-inline: var(--fs-400);
+      margin: var(--fs-25);
+      width: fit-content;
+      border-radius: 1rem;
+      font-weight: var(--fw-700);
+    }
+
+    li[data-tag="FastGrowing"] {
+      background-color: var(--clr-fast);
     }
 
 
-
-
-    ul {
-      list-style-type: none;
-      display: flex;
-      flex-wrap: wrap;
-
-      li {
-        color: var(--clr-neutral-100);
-        padding: var(--fs-100);
-        padding-inline: var(--fs-400);
-        margin: var(--fs-25);
-        width: fit-content;
-        border-radius: 1rem;
-        font-weight: var(--fw-700);
-      }
-
-      li[data-tag="Flowers"] {
-        background-color: var(--clr-flower);
-      }
-
-      li[data-tag="Edible"] {
-        background-color: var(--clr-edible);
-      }
-
-      li[data-tag="Vegetables"] {
-        background-color: var(--clr-green);
-      }
-
-      li[data-tag="SunLoving"] {
-        background-color: var(--clr-sunloving);
-      }
-
-      li[data-tag="EasyToPlant"] {
-        background-color: var(--clr-easy);
-      }
-
-      li[data-tag="Decorative"] {
-        background-color: var(--clr-decorative);
-      }
-
-      li[data-tag="Colorfull"] {
-        background-color: var(--clr-colorful);
-      }
-
-      li[data-tag="Tough"] {
-        background-color: var(--clr-robust);
-      }
-
-      li[data-tag="Spices"] {
-        background-color: var(--clr-air);
-      }
-
-      li[data-tag="Humidifying"] {
-        background-color: var(--clr-air);
-      }
-
-      li[data-tag="Fragrant"] {
-        background-color: var(--clr-fragrant);
-      }
+    li[data-tag="Flowers"] {
+      background-color: var(--clr-flower);
     }
+
+    li[data-tag="Edible"] {
+      background-color: var(--clr-edible);
+    }
+
+    li[data-tag="Vegetables"] {
+      background-color: var(--clr-green);
+    }
+
+    li[data-tag="SunLoving"] {
+      background-color: var(--clr-sunloving);
+    }
+
+    li[data-tag="EasyToPlant"] {
+      background-color: var(--clr-easy);
+    }
+
+    li[data-tag="Decorative"] {
+      background-color: var(--clr-decorative);
+    }
+
+    li[data-tag="Colorfull"] {
+      background-color: var(--clr-colorful);
+    }
+
+    li[data-tag="Tough"] {
+      background-color: var(--clr-robust);
+    }
+
+    li[data-tag="Spices"] {
+      background-color: var(--clr-air);
+    }
+
+    li[data-tag="Humidifying"] {
+      background-color: var(--clr-air);
+    }
+
+    li[data-tag="Fragrant"] {
+      background-color: var(--clr-fragrant);
+    }
+  }
+
+
+
+
+
+
+
+section#planingSection {
+
+  background-color: var(--clr-neutral-100);
+  padding: var(--fs-400);
+
+  div.wrapper {
+    display: grid;
+    margin-inline: auto;
+    width: clamp(20rem, 50vw, 40rem);
+    gap: 0;
+  }
+
+  h2 {
+
+    grid-area: 1 / 2 / span 1 / span 2;
+    padding-inline: var(--fs-400);
+   
+    align-content: end;
+  }
+
+  p {
+
+    justify-items:start;
+    grid-area: 2 / 2 / span 1 / span 2;
+    padding-inline: var(--fs-400);
+
+  }
+  a.button {
+ 
+    justify-items:start;
+    grid-area: 3 / 3 / span 1 / span 1;
+    padding-inline: var(--fs-400);
+    text-align: end;
+    height: fit-content;
+  }
+
+  img {
+    grid-area: 1 / 1 / span 3 / span 1;
+    background-color: var(--clr-green-400);
+    border-radius: 50%;
+    padding: var(--fs-600);
+    min-width: 14rem;
+    aspect-ratio: 1;
   }
 }
 
 
 
+
+footer {
+ 
+
+}
+
+
+
+
+@media (width < 900px) {
+  #plantsSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+}
+
+
+
 @media (width < 672px) {
+
+  #plantsSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+  }
+
   body>header>nav>button {
     display: block;
   }
@@ -484,4 +692,11 @@ aspect-ratio: 1/1.2;
   }
 
 
+}
+
+@media (width < 500px) {
+  #plantsSection {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }

@@ -5,13 +5,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/Assets/css/style.css" />
+  <script>
+    document.addEventListener("readystatechange", () => {
+      if (document.readyState === "complete") {
 
+
+      }
+    });
+
+
+  </script>
 
   <title>Planned Planthood</title>
 </head>
 
 <body>
   <header>
+    <a href="#home" id=""home"">
     <svg id="logo" viewBox="0 0 210 210" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d_23_425)">
         <path
@@ -35,13 +45,15 @@
           <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_23_425" result="shape" />
         </filter>
       </defs>
-    </svg>
+    </svg>                  
     <h1>
       Planned<span> </span>Planthood
     </h1>
+  </a>
     <nav>
       <button aria-hidden="true">
         <?xml version="1.0" encoding="utf-8"?>
+        <button aria-label="Menu">
         <svg width="214" height="210" viewBox="0 0 214 210" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_23_425)">
             <rect x="18.321" y="32.557" width="177.359"
@@ -69,13 +81,12 @@
             </filter>
           </defs>
         </svg>
-
       </button>
       <ul>
-        <li>Hem</li>
-        <li>Historik</li>
-        <li>Tips</li>
-        <li>Kontakt</li>
+        <li><a href="#">Hem</a></li>
+        <li><a href="#">Historik</a></li>
+        <li><a href="#">Tips</a></li>
+        <li><a href="#">Kontakt</a></li>
       </ul>
     </nav>
   </header>
@@ -84,11 +95,11 @@
     <h2>Uppskattade växter</h2>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, corporis ipsum.</p>
     <section class="gallery">
-      <img src="/Assets/images/800px-Centaurea_cyanus_0003_CC BY-SA 3.0.jpeg" alert="I dont know shit about flowers" />
-      <img src="/Assets/images/1280px-2006-10-18Dahlia03m_CC BY 2.5.jpg" alert="I dont know shit about flowers" />
-      <img src="/Assets/images/1280px-Flor_en_Madrid_CC BY-SA 2.5.jpg" alert="I dont know shit about flowers" />
-      <img src="/Assets/images/1280px-Flor_GDFL_03_CC BY-SA 3.0.jpeg" alert="I dont know shit about flowers" />
-      <img src="/Assets/images/1280px-Hibiscus_petal_CC BY-SA 3.0.jpg" alert="I dont know shit about flowers" />
+      <img src="/Assets/images/800px-Centaurea_cyanus_0003_CC BY-SA 3.0.jpeg" alt="I dont know shit about flowers" />
+      <img src="/Assets/images/1280px-2006-10-18Dahlia03m_CC BY 2.5.jpg" alt="I dont know shit about flowers" />
+      <img src="/Assets/images/1280px-Flor_en_Madrid_CC BY-SA 2.5.jpg" alt="I dont know shit about flowers" />
+      <img src="/Assets/images/1280px-Flor_GDFL_03_CC BY-SA 3.0.jpeg" alt="I dont know shit about flowers" />
+      <img src="/Assets/images/1280px-Hibiscus_petal_CC BY-SA 3.0.jpg" alt="I dont know shit about flowers" />
 
 
     </section>
@@ -99,7 +110,8 @@
       <img src="Assets/images/icon-planting.svg" alt="" />
       <h2>Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!</h2>
       <form>
-        <input type="email" placeholder="email@domain.com"><button>Skicka</button>
+        <label class="specialHide" for="emailInput">Email</label>
+        <input id="emailInput" type="email" placeholder="email@domain.com"><button>Skicka</button>
       </form>
     </div>
   </section>
@@ -107,7 +119,11 @@
 
   <section id="plantsSection">
     <article>
-      <header><img src="/Assets/images/800px-ARS_cucumber_dubious_public_domain.jpg" alt="">
+      <header>
+        <picture>
+          <img src="/Assets/images/800px-ARS_cucumber_dubious_public_domain.jpg"  alt="" />
+          <div></div>
+        </picture>       
         <ul>
           <li data-tag="Flowers">Blommor</li>
           <li data-tag="Edible">Ätbart</li>
@@ -117,13 +133,18 @@
       <h3>Gurka</h3>
       <p>Gurka växer snabbt, är enkel att odla och ger mängder med gurkor, bara man är noga med vattning, omplantering,
         duschning och gödsling.</p>
-      <footer><img src="./assets/images/Coolio.png" alt="">
+      <footer>
+        <img src="/Assets/images//Coolio.png" alt="">
         <p class="name">Coolio</p>
         <p class="date">Mon Apr 01 2024</p>
       </footer>
     </article>
     <article>
-      <header><img src="/Assets/images/Tomato_je_CC_BY-SA3.0.jpg" alt="">
+      <header>
+      <picture>
+        <img src="/Assets/images/Tomato_je_CC_BY-SA3.0.jpg"  alt="" />
+        <div></div>
+      </picture>
         <ul>
           <li data-tag="SunLoving">Solälskande</li>
           <li data-tag="EasyToPlant">Lättodlat</li>
@@ -138,7 +159,11 @@
       </footer>
     </article>
     <article>
-      <header><img src="/Assets/images/Pelargonium_graveolens_4_CC_BY-SA3.0.jpg" alt="">
+      <header>
+      <picture>
+        <img src="/Assets/images/Pelargonium_graveolens_4_CC_BY-SA3.0.jpg"  alt="" />
+        <div></div>
+      </picture>
         <ul>
           <li data-tag="Decorative">Dekorativ</li>
           <li data-tag="Colorfull">Färgstark</li>
@@ -154,7 +179,11 @@
       </footer>
     </article>
     <article>
-      <header><img src="/Assets/images/Ocimum_basilicum_001_CC_BY-SA3.0.JPG" alt="">
+      <header> 
+      <picture>
+        <img src="/Assets/images/Ocimum_basilicum_001_CC_BY-SA3.0.JPG"  alt="" />
+        <div></div>
+      </picture>
         <ul>
           <li data-tag="Spices">Kryddor</li>
           <li data-tag="Fragrant">Doftande</li>
@@ -169,7 +198,11 @@
       </footer>
     </article>
     <article>
-      <header><img src="/Assets/images/Romaine_lettuce_CC_BY-SA3.0.jpg" alt="">
+      <header>
+      <picture>
+        <img src="/Assets/images/Romaine_lettuce_CC_BY-SA3.0.jpg"  alt="" />
+        <div></div>
+      </picture>
         <ul>
           <li data-tag="FastGrowing">Snabbväxande</li>
           <li data-tag="Edible">Ätbart</li>
@@ -184,7 +217,11 @@
       </footer>
     </article>
     <article>
-      <header><img src="/Assets/images/1024px-PolypodFronds2_CC_BY-SA3.0.jpg" alt="">
+      <header>
+        <picture>
+        <img src="/Assets/images/1024px-PolypodFronds2_CC_BY-SA3.0.jpg" alt="" />
+        <div></div> 
+        </picture>
         <ul>
           <li data-tag="Humidifying">Luftfuktande</li>
           <li data-tag="Vegetables">Grönska</li>
@@ -202,14 +239,21 @@
 
 
   <section id="planingSection">
+    <div class="wrapper">
+    <img src="/Assets/images/icon-seedling.svg" alt="seedling">
     <h2>Våra tidigare odlingar</h2>
+    <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos pariatur deserunt veritatis.
     Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
-    <a href="#" class="button">Planterade plantor</a>
+ 
+  </p>
+  <a class="button" href="#">Planterade plantor</a>
+    </div>
   </section>
 
 
   <footer>
+
     <h2>Planterade plantor</h2>
     <p>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, veniam ducimus aut sint atque ullam alias
