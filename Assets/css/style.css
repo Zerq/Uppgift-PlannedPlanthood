@@ -690,7 +690,7 @@ footer#PageFooter {
   }
 
   body {
-    background-color: aqua;
+   
   }
 
 }
@@ -698,7 +698,7 @@ footer#PageFooter {
 
 @media (width < 672px) {
   body {
-    background-color: burlywood;
+ 
   }
 
   #plantsSection {
