@@ -134,7 +134,6 @@ main {
 }
 
 svg {
-  --color: var(--clr-green-400);
   min-height: calc(var(--fs-500) * 2);
   max-width: calc(var(--fs-500) * 2);
   max-height: calc(var(--fs-500) * 2);
@@ -146,9 +145,16 @@ body {
   font-family: val(--font-base);
 }
 
-svg#logo {
+.GreenLogo {
   margin: var(--fs-500);
+  --color: var(--clr-green-400);
 }
+
+.WhiteLogo {
+  margin: var(--fs-500);
+  --color: var(--clr-neutral-100);
+}
+
 
 
 /* Utilities */
@@ -220,24 +226,16 @@ body>header {
   color: var(--clr-green-400);
   align-items: center;
 
-  a[href="#home"]{
+  a[href="#home"] {
     display: flex;
     align-items: center;
   }
 
-
-
   h1 {
-
-
-
     span {
       display: block;
     }
-
-
   }
-
 
   nav {
     display: contents;
@@ -262,7 +260,7 @@ body>header {
       }
     }
 
-    button {
+    .hamburgerMenu {
       display: none;
       margin: var(--fs-500);
       margin-left: auto;
@@ -275,7 +273,7 @@ body>header {
 #appreachiationSection {
   text-align: center;
 
-  
+
   h2 {
     margin-top: var(--fs-900);
     padding-bottom: var(--fs-400);
@@ -294,15 +292,10 @@ section>section.gallery {
   padding: var(--fs-400);
   margin-inline: auto;
   margin-bottom: var(--fs-900);
-
-
   display: grid;
-
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-
   background-color: white;
-
 
   img {
     height: 100%;
@@ -310,8 +303,6 @@ section>section.gallery {
     background-image: url(/Assets/images/icon-seedling-2.svg);
     background-repeat: no-repeat;
     background-position: center;
-
-
   }
 
   img:nth-child(1) {
@@ -321,37 +312,43 @@ section>section.gallery {
 
 }
 
-.specialHide{
-  overflow:hidden;
+.specialHide {
+  overflow: hidden;
   height: 1px;
-  width: 1px;         
+  width: 1px;
 }
 
 
-button, a.button {
+button,
+a.button {
   flex-basis: fit-content;
   border-radius: var(--fs-400);
   padding: var(--fs-50);
   margin: var(--fs-50);
-  border: dashed var(--fs-25)  transparent;
+  border: dashed var(--fs-25) transparent;
   background-color: var(--clr-green-400);
   color: white;
 }
 
-
- 
 a:focus-visible,
-a:focus
- {
+a:focus {
   outline: none !important;
-  flex-basis: fit-content  !important;
+  flex-basis: fit-content !important;
   padding: var(--fs-50);
   margin: var(--fs-50);
-  border:dashed var(--fs-25) var(--clr-green-400)  !important;
-
-  color: var(--clr-green-400)  !important;
+  border: dashed var(--fs-25) var(--clr-green-400) !important;
+  color: var(--clr-green-400) !important;
 }
 
+.Green a:focus-visible,
+.dark a:focus {
+  outline: none !important;
+  flex-basis: fit-content !important;
+  padding: var(--fs-50);
+  margin: var(--fs-50);
+  border: dashed var(--fs-25) var(--clr-neutral-100) !important;
+  color: var(--clr-neutral-100) !important;
+}
 
 
 button:focus-visible,
@@ -365,14 +362,14 @@ a.button:focus-visible,
 a.button:focus,
 button:focus-visible,
 button:focus {
-  flex-basis: fit-content  !important;
+  flex-basis: fit-content !important;
   padding: var(--fs-50);
   margin: var(--fs-50);
-  border:dashed var(--fs-25) var(--clr-green-400)  !important;
-  background-color: var(--clr-neutral-100)  !important;
-  color: var(--clr-green-400)  !important;
-
+  border: dashed var(--fs-25) var(--clr-green-400) !important;
+  background-color: var(--clr-neutral-100) !important;
+  color: var(--clr-green-400) !important
 }
+
 
 
 
@@ -427,7 +424,7 @@ section#emailFormSeciton {
       border-radius: var(--fs-400);
       padding: var(--fs-50);
       margin: var(--fs-50);
-      border: dashed var(--fs-25)  transparent;
+      border: dashed var(--fs-25) transparent;
       background-color: var(--clr-green-400);
       color: white;
     }
@@ -440,24 +437,11 @@ section#emailFormSeciton {
 
   form:has(input:focus-visible),
   form:has(input:focus) {
-    border: dashed var(--fs-25)  var(--clr-green-400);
-   
-    
+    border: dashed var(--fs-25) var(--clr-green-400);
+
+
   }
-
-
-
-
-
-
-
-  
-
- 
-
-
 }
-
 
 #plantsSection {
   width: 80vw;
@@ -475,114 +459,105 @@ section#emailFormSeciton {
     border-top: 0;
     border-radius: var(--fs-25);
 
-    
+
     header picture {
+      aspect-ratio: 1/1.2;
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      img {
+        display: block;
         aspect-ratio: 1/1.2;
         width: 100%;
-        height: 100%; 
-        position: relative;
-        img { 
-          display: block;
-          aspect-ratio: 1/1.2;
-          width: 100%;
-          height: 100%;
-          }    
-    
-          div {    
-         
-            position: absolute;
-            background-image: url("/Assets/images/icon-seedling.svg");
-            background-size: auto;
-            background-repeat: no-repeat;
-            opacity: 0.5;
-            background-position: center;
-            background-size: 70%;
-            background-blend-mode: hard-light;
-            display: block;
-            aspect-ratio: 1/1.2;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top:0;
-                
-          }      
-        }
+        height: 100%;
       }
-    }    
- 
 
+      div {
 
-
-  ul {
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-
-    li {
-      color: var(--clr-neutral-100);
-      padding: var(--fs-100);
-      padding-inline: var(--fs-400);
-      margin: var(--fs-25);
-      width: fit-content;
-      border-radius: 1rem;
-      font-weight: var(--fw-700);
+        position: absolute;
+        background-image: url("/Assets/images/icon-seedling.svg");
+        background-size: auto;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        background-position: center;
+        background-size: 70%;
+        background-blend-mode: hard-light;
+        display: block;
+        aspect-ratio: 1/1.2;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+      }
     }
+  }
+}
 
-    li[data-tag="FastGrowing"] {
-      background-color: var(--clr-fast);
-    }
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
 
+  li {
+    color: var(--clr-neutral-100);
+    padding: var(--fs-100);
+    padding-inline: var(--fs-400);
+    margin: var(--fs-25);
+    width: fit-content;
+    border-radius: 1rem;
+    font-weight: var(--fw-700);
+  }
 
-    li[data-tag="Flowers"] {
-      background-color: var(--clr-flower);
-    }
-
-    li[data-tag="Edible"] {
-      background-color: var(--clr-edible);
-    }
-
-    li[data-tag="Vegetables"] {
-      background-color: var(--clr-green);
-    }
-
-    li[data-tag="SunLoving"] {
-      background-color: var(--clr-sunloving);
-    }
-
-    li[data-tag="EasyToPlant"] {
-      background-color: var(--clr-easy);
-    }
-
-    li[data-tag="Decorative"] {
-      background-color: var(--clr-decorative);
-    }
-
-    li[data-tag="Colorfull"] {
-      background-color: var(--clr-colorful);
-    }
-
-    li[data-tag="Tough"] {
-      background-color: var(--clr-robust);
-    }
-
-    li[data-tag="Spices"] {
-      background-color: var(--clr-air);
-    }
-
-    li[data-tag="Humidifying"] {
-      background-color: var(--clr-air);
-    }
-
-    li[data-tag="Fragrant"] {
-      background-color: var(--clr-fragrant);
-    }
+  li[data-tag="FastGrowing"] {
+    background-color: var(--clr-fast);
   }
 
 
+  li[data-tag="Flowers"] {
+    background-color: var(--clr-flower);
+  }
 
+  li[data-tag="Edible"] {
+    background-color: var(--clr-edible);
+  }
 
+  li[data-tag="Vegetables"] {
+    background-color: var(--clr-green);
+  }
 
+  li[data-tag="SunLoving"] {
+    background-color: var(--clr-sunloving);
+  }
 
+  li[data-tag="EasyToPlant"] {
+    background-color: var(--clr-easy);
+  }
+
+  li[data-tag="Decorative"] {
+    background-color: var(--clr-decorative);
+  }
+
+  li[data-tag="Colorfull"] {
+    background-color: var(--clr-colorful);
+  }
+
+  li[data-tag="Tough"] {
+    background-color: var(--clr-robust);
+  }
+
+  li[data-tag="Spices"] {
+    background-color: var(--clr-air);
+  }
+
+  li[data-tag="Humidifying"] {
+    background-color: var(--clr-air);
+  }
+
+  li[data-tag="Fragrant"] {
+    background-color: var(--clr-fragrant);
+  }
+}
 
 section#planingSection {
 
@@ -600,20 +575,21 @@ section#planingSection {
 
     grid-area: 1 / 2 / span 1 / span 2;
     padding-inline: var(--fs-400);
-   
+
     align-content: end;
   }
 
   p {
 
-    justify-items:start;
+    justify-items: start;
     grid-area: 2 / 2 / span 1 / span 2;
     padding-inline: var(--fs-400);
 
   }
+
   a.button {
- 
-    justify-items:start;
+
+    justify-items: start;
     grid-area: 3 / 3 / span 1 / span 1;
     padding-inline: var(--fs-400);
     text-align: end;
@@ -625,20 +601,86 @@ section#planingSection {
     background-color: var(--clr-green-400);
     border-radius: 50%;
     padding: var(--fs-600);
-    min-width: 14rem;
+    width: 12rem;
     aspect-ratio: 1;
   }
 }
 
+footer#PageFooter {
+  background-color: var(--clr-green-400) !important;
+  color: var(--clr-neutral-100);
+  padding-block: 2rem;
+
+  div.wrapper {
+
+    display: grid;
+    grid-template-columns: 6rem 13rem 1fr;
+    grid-template-rows: auto auto auto auto;
+    width: 80vw;
+    margin-inline: auto;
+
+    svg {
+      grid-column-start: 1;
+      grid-row-start: 1;
+    }
+
+    h2 {
+      grid-column: 2;
+      grid-row-start: 1;
+    }
+
+    p {
+      grid-column-start: 1;
+      grid-row-start: 2;
+      grid-column-end: 3;
+      grid-row-end: 4;
+      padding: 2rem;
+
+      a.phone::before {
+        content: " ";
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 1rem;
+        background-image: url(/Assets/images/icon-phone.svg);
+
+      }
+
+
+      a.email::before {
+        content: " ";
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 1rem;
+        background-image: url(/Assets/images/icon-email.svg);
+      }
+
+    }
 
 
 
-footer {
- 
+    nav {
+
+      grid-column-start: 4;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end: 4;
+
+      ul {
+        flex-direction: column;
+
+
+      }
+    }
+
+    a {
+      color: var(--clr-neutral-100);
+    }
+
+  }
 
 }
-
-
 
 
 @media (width < 900px) {
@@ -647,11 +689,17 @@ footer {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
+  body {
+    background-color: aqua;
+  }
+
 }
 
 
-
 @media (width < 672px) {
+  body {
+    background-color: burlywood;
+  }
 
   #plantsSection {
     display: grid;
@@ -659,9 +707,11 @@ footer {
 
   }
 
-  body>header>nav>button {
-    display: block;
+  body>header nav button.hamburgerMenu {
+    display: block !important;
+
   }
+
 
   body>header>nav>ul>li {
     display: none;
@@ -691,8 +741,15 @@ footer {
     }
   }
 
+  footer#PageFooter>div.wrapper {
+    grid-template-columns: 6rem;
 
+    nav {
+      display: none;
+    }
+  }
 }
+
 
 @media (width < 500px) {
   #plantsSection {
