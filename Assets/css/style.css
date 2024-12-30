@@ -312,10 +312,12 @@ section>section.gallery {
 
 }
 
+
 .specialHide {
-  overflow: hidden;
-  height: 1px;
-  width: 1px;
+  height: 0.1px !important;
+  width: 0.1px !important;
+  overflow: hidden !important;
+  display: block !important;
 }
 
 
