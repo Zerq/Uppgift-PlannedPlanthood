@@ -131,6 +131,9 @@ main {
   --fw-semi-bold: var(--fw-600);
   --fw-bold: var(--fw-700);
   --fw-x-bold: var(--fw-900);
+
+  --WrapperClamp: clamp(20rem, 50vw, 40rem);
+  --WrapperClamp2: clamp(20rem, 80vw, 60rem);
 }
 
 svg {
@@ -208,8 +211,8 @@ body {
 }
 
 body>header {
-
-
+  background-color: var(--clr-neutral-100);
+  .wrapper {
   a:hover,
   a:focus-visible {
     color: var(--clr-green-400);
@@ -217,14 +220,15 @@ body>header {
   }
 
 
+  width: var(--WrapperClamp2);
 
 
-  background-color: var(--clr-neutral-100);
   display: flex block;
   font-weight: var(--fw-500);
   font-size: var(--fs-500);
   color: var(--clr-green-400);
   align-items: center;
+  margin-inline:auto;
 
   a[href="#home"] {
     display: flex;
@@ -234,6 +238,7 @@ body>header {
   h1 {
     span {
       display: block;
+      font-weight: var(--fw-x-bold);
     }
   }
 
@@ -269,6 +274,7 @@ body>header {
     }
   }
 }
+}
 
 #appreachiationSection {
   text-align: center;
@@ -288,7 +294,7 @@ body>header {
 
 
 section>section.gallery {
-  width: clamp(3rem, 60vw, 90vw);
+  width: var(--WrapperClamp2);
   padding: var(--fs-400);
   margin-inline: auto;
   margin-bottom: var(--fs-900);
@@ -386,7 +392,7 @@ section#emailFormSeciton {
     justify-content: space-around;
     align-items: center;
     margin-inline: auto;
-    width: clamp(20rem, 50vw, 40rem);
+    width: var(--WrapperClamp);
   }
 
   h2 {
@@ -446,14 +452,17 @@ section#emailFormSeciton {
 }
 
 #plantsSection {
-  width: 80vw;
+  width: var(--WrapperClamp2);
   margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+
+
+
   padding: var(--fs-400);
   gap: var(--fs-400);
 
-
+ 
   article {
     background-color: var(--clr-neutral-100);
     padding: var(--fs-400);
@@ -462,7 +471,12 @@ section#emailFormSeciton {
     border-radius: var(--fs-25);
 
 
+    display: grid;
+    grid-template-rows: 0.5fr  max-content max-content auto auto;
+
+
     header picture {
+ 
       aspect-ratio: 1/1.2;
       width: 100%;
       height: 100%;
@@ -493,73 +507,108 @@ section#emailFormSeciton {
         top: 0;
       }
     }
+
+    h3 {
+      padding-block: var(--fs-400);
+    }
+
+    footer {
+
+      display: flex;
+      gap:1rem;
+
+
+      img {
+        height: 5rem;
+
+      
+
+
+      }
+      p {
+        margin-block: auto;
+      }
+
+      .name {
+        font-weight: var(--fw-800);
+        align-content: end;
+        padding-block: var(--fs-25);
+  
+      }
+
+ 
+    }
+
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: var(--fs-400);
+
+      li {
+        color: var(--clr-neutral-100);
+        padding: var(--fs-100);
+        padding-inline: var(--fs-400);
+        margin: var(--fs-25);
+        width: fit-content;
+        border-radius: var(--fs-400);
+        font-weight: var(--fw-700);
+      }
+
+      li[data-tag="FastGrowing"] {
+        background-color: var(--clr-fast);
+      }
+
+
+      li[data-tag="Flowers"] {
+        background-color: var(--clr-flower);
+      }
+
+      li[data-tag="Edible"] {
+        background-color: var(--clr-edible);
+      }
+
+      li[data-tag="Vegetables"] {
+        background-color: var(--clr-green);
+      }
+
+      li[data-tag="SunLoving"] {
+        background-color: var(--clr-sunloving);
+      }
+
+      li[data-tag="EasyToPlant"] {
+        background-color: var(--clr-easy);
+      }
+
+      li[data-tag="Decorative"] {
+        background-color: var(--clr-decorative);
+      }
+
+      li[data-tag="Colorfull"] {
+        background-color: var(--clr-colorful);
+      }
+
+      li[data-tag="Tough"] {
+        background-color: var(--clr-robust);
+      }
+
+      li[data-tag="Spices"] {
+        background-color: var(--clr-air);
+      }
+
+      li[data-tag="Humidifying"] {
+        background-color: var(--clr-air);
+      }
+
+      li[data-tag="Fragrant"] {
+        background-color: var(--clr-fragrant);
+      }
+    }
   }
+
 }
 
-ul {
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-
-  li {
-    color: var(--clr-neutral-100);
-    padding: var(--fs-100);
-    padding-inline: var(--fs-400);
-    margin: var(--fs-25);
-    width: fit-content;
-    border-radius: 1rem;
-    font-weight: var(--fw-700);
-  }
-
-  li[data-tag="FastGrowing"] {
-    background-color: var(--clr-fast);
-  }
-
-
-  li[data-tag="Flowers"] {
-    background-color: var(--clr-flower);
-  }
-
-  li[data-tag="Edible"] {
-    background-color: var(--clr-edible);
-  }
-
-  li[data-tag="Vegetables"] {
-    background-color: var(--clr-green);
-  }
-
-  li[data-tag="SunLoving"] {
-    background-color: var(--clr-sunloving);
-  }
-
-  li[data-tag="EasyToPlant"] {
-    background-color: var(--clr-easy);
-  }
-
-  li[data-tag="Decorative"] {
-    background-color: var(--clr-decorative);
-  }
-
-  li[data-tag="Colorfull"] {
-    background-color: var(--clr-colorful);
-  }
-
-  li[data-tag="Tough"] {
-    background-color: var(--clr-robust);
-  }
-
-  li[data-tag="Spices"] {
-    background-color: var(--clr-air);
-  }
-
-  li[data-tag="Humidifying"] {
-    background-color: var(--clr-air);
-  }
-
-  li[data-tag="Fragrant"] {
-    background-color: var(--clr-fragrant);
-  }
-}
 
 section#planingSection {
 
@@ -569,7 +618,7 @@ section#planingSection {
   div.wrapper {
     display: grid;
     margin-inline: auto;
-    width: clamp(20rem, 50vw, 40rem);
+    width: var(--WrapperClamp);
     gap: 0;
   }
 
@@ -611,14 +660,13 @@ section#planingSection {
 footer#PageFooter {
   background-color: var(--clr-green-400) !important;
   color: var(--clr-neutral-100);
-  padding-block: 2rem;
+  padding-block: var(--fs-700);
 
   div.wrapper {
 
     display: grid;
     grid-template-columns: 6rem 13rem 1fr;
-    grid-template-rows: auto auto auto auto;
-    width: 80vw;
+    width: var(--WrapperClamp2);
     margin-inline: auto;
 
     svg {
@@ -629,6 +677,9 @@ footer#PageFooter {
     h2 {
       grid-column: 2;
       grid-row-start: 1;
+      font-size: var(--fs-500);
+      align-content: center;
+     
     }
 
     p {
@@ -636,31 +687,26 @@ footer#PageFooter {
       grid-row-start: 2;
       grid-column-end: 3;
       grid-row-end: 4;
-      padding: 2rem;
+      padding: var(--fs-700);
 
       a.phone::before {
         content: " ";
         display: inline-block;
-        width: 1rem;
-        height: 1rem;
-        margin-right: 1rem;
+        width: var(--fs-400);
+        height: var(--fs-400);
+        margin-right: var(--fs-400);
         background-image: url(/Assets/images/icon-phone.svg);
-
       }
-
 
       a.email::before {
         content: " ";
         display: inline-block;
-        width: 1rem;
-        height: 1rem;
-        margin-right: 1rem;
+        width: var(--fs-400);
+        height: var(--fs-400);
+        margin-right: var(--fs-400);
         background-image: url(/Assets/images/icon-email.svg);
       }
-
     }
-
-
 
     nav {
 
@@ -691,17 +737,13 @@ footer#PageFooter {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  body {
-   
-  }
+ 
 
 }
 
 
 @media (width < 672px) {
-  body {
  
-  }
 
   #plantsSection {
     display: grid;
@@ -751,7 +793,6 @@ footer#PageFooter {
     }
   }
 }
-
 
 @media (width < 500px) {
   #plantsSection {
