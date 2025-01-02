@@ -214,6 +214,7 @@ body {
 }
 
 body>header {
+
   background-color: var(--clr-neutral-100);
   .wrapper {
   a:hover,
@@ -224,8 +225,6 @@ body>header {
 
 
   width: var(--WrapperClamp2);
-
-
   display: flex block;
   font-weight: var(--fw-500);
   font-size: var(--fs-500);
@@ -233,7 +232,7 @@ body>header {
   align-items: center;
   margin-inline:auto;
 
-  a[href="#home"] {
+  #home {
     display: flex;
     align-items: center;
   }
@@ -357,47 +356,41 @@ a.button {
   border-radius: var(--fs-400);
   padding: var(--fs-50);
   margin: var(--fs-50);
-  border: dashed var(--fs-25) transparent;
+  outline: dashed var(--fs-25) transparent;
   background-color: var(--clr-green-400);
   color: white;
 }
 
-a:focus-visible,
-a:focus {
-  outline: none !important;
+a:focus-visible
+ {
   flex-basis: fit-content !important;
   padding: var(--fs-50);
   margin: var(--fs-50);
-  border: dashed var(--fs-25) var(--clr-green-400) !important;
+  outline: dashed var(--fs-25) var(--clr-green-400) !important;
   color: var(--clr-green-400) !important;
 }
 
-.Green a:focus-visible,
-.dark a:focus {
-  outline: none !important;
+.Green a:focus-visible
+ {
   flex-basis: fit-content !important;
   padding: var(--fs-50);
   margin: var(--fs-50);
-  border: dashed var(--fs-25) var(--clr-neutral-100) !important;
+  outline: dashed var(--fs-25) var(--clr-neutral-100) !important;
   color: var(--clr-neutral-100) !important;
 }
 
 
 button:focus-visible,
-button:focus,
-a.button:focus-visible,
-a.button:focus {
+a.button:focus-visible{
   outline: none !important;
 }
 
 a.button:focus-visible,
-a.button:focus,
-button:focus-visible,
-button:focus {
+button:focus-visible {
   flex-basis: fit-content !important;
   padding: var(--fs-50);
   margin: var(--fs-50);
-  border: dashed var(--fs-25) var(--clr-green-400) !important;
+  outline: dashed var(--fs-25) var(--clr-green-400) !important;
   background-color: var(--clr-neutral-100) !important;
   color: var(--clr-green-400) !important
 }
@@ -451,7 +444,7 @@ section#emailFormSeciton {
       border-radius: var(--fs-400);
       padding: var(--fs-50);
       margin: var(--fs-50);
-      border: dashed var(--fs-25) transparent;
+      outline: dashed var(--fs-25) transparent;
       background-color: var(--clr-green-400);
       color: white;
     }
@@ -464,7 +457,7 @@ section#emailFormSeciton {
 
   form:has(input:focus-visible),
   form:has(input:focus) {
-    border: dashed var(--fs-25) var(--clr-green-400);
+    outline: dashed var(--fs-25) var(--clr-green-400);
 
 
   }
@@ -475,9 +468,6 @@ section#emailFormSeciton {
   margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
-
-
   padding: var(--fs-400);
   gap: var(--fs-400);
 
@@ -696,22 +686,31 @@ footer#PageFooter {
       grid-row-end: 4;
       padding: var(--fs-700);
 
+      a{
+        margin-block: var(--fs-50);
+        display: inline-block;
+      }
+
       a.phone::before {
         content: " ";
         display: inline-block;
-        width: var(--fs-400);
-        height: var(--fs-400);
+        width: 1.1rem;
+        height: 1.1rem;
         margin-right: var(--fs-400);
         background-image: url(/Assets/images/icon-phone.svg);
+        vertical-align: middle;
+        
       }
 
       a.email::before {
         content: " ";
         display: inline-block;
-        width: var(--fs-400);
-        height: var(--fs-400);
+        width: 1.25rem;
+        height: 1rem;
         margin-right: var(--fs-400);
         background-image: url(/Assets/images/icon-email.svg);
+
+        vertical-align: middle;
       }
     }
 
@@ -775,9 +774,64 @@ footer#PageFooter {
 
   }
 
+ 
+
+
   body>header>.wrapper>nav>ul>li {
     display: none;
   }
+
+
+  body>header>.wrapper:has(nav.expanded) #home{
+    align-self: baseline;
+    position: absolute;
+    top:0.34rem;
+  }
+
+  body>header>.wrapper>nav.expanded {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    ul>li {
+      display: inline-block;
+      width: 100%;
+      padding: var(--fs-200);
+      margin: var(--fs-50);
+      a {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        padding: var(--fs-400);
+        background-color: var(--clr-accent-light-1);
+      }
+    }
+    ul>li:hover a           {
+      outline: dashed var(--fs-25) var(--clr-green-400);
+
+    }
+
+      li:first-child {
+      margin-left: 0;
+      margin-top: var(--fs-400);
+    }
+      li:last-child {
+      margin-left: 0;
+      margin-bottom: var(--fs-400);
+    }
+  
+
+
+
+
+
+    
+  }
+
+
+
+
+ 
 
 
   section#emailFormSeciton {

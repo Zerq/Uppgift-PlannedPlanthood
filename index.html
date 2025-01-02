@@ -8,6 +8,11 @@
   <script>
     document.addEventListener("readystatechange", () => {
       if (document.readyState === "complete") {
+        let menuButton = document.getElementById("menuButton");
+
+        menuButton.addEventListener("click", ()=> {
+          menuButton.parentElement.classList.toggle("expanded");
+        });
 
       }
     });
@@ -21,7 +26,7 @@
 <body>
   <header>
     <div class="wrapper">
-    <a href="#home" id="" home"">
+    <span id="home">
       <svg class="GreenLogo" viewBox="0 0 210 210" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_d_23_425)">
           <path
@@ -49,12 +54,14 @@
       <h1>
         Planned<span> </span>Planthood
       </h1>
-    </a>
+    </span>
     <nav>
     
     
-        <button class="hamburgerMenu GreenLogo">
-          <span class="specialHide">Menu</span>
+        <button id="menuButton"  class="hamburgerMenu GreenLogo">
+          <span class="specialHide">
+            Menu
+          </span>
           <svg width="214" height="210" viewBox="0 0 214 210" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_23_425)">
               <rect x="18.321" y="32.557" width="177.359"
@@ -85,10 +92,10 @@
         </button>
       
         <ul>
-          <li><a href="#">Hem</a></li>
-          <li><a href="#">Historik</a></li>
-          <li><a href="#">Tips</a></li>
-          <li><a href="#">Kontakt</a></li>
+          <li><a href="#home">Hem</a></li>
+          <li><a href="#history">Historik</a></li>
+          <li><a href="#tips">Tips</a></li>
+          <li><a href="#contact">Kontakt</a></li>
         </ul>
     </nav>
   </div>
