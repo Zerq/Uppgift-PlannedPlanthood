@@ -47,7 +47,7 @@ h6 {
 p,
 li,
 figcaption {
-  text-wrap: pretty;
+  text-wrap: pretty; /*<-- ????? wtf did i accidentally change this? this does not seam valid check later... what this is supposed to be...*/
   max-width: 55ch;
 }
 
@@ -68,6 +68,10 @@ main {
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 :root {
+
+  --WrapperClamp: max(20rem, 50vw);
+  --WrapperClamp2: max(20rem, 65vw);
+
   --clr-neutral-100: hsl(0, 0%, 100%);
   --clr-neutral-200: hsl(0, 0%, 87%);
   --clr-neutral-300: hsl(0, 0%, 57%);
@@ -132,8 +136,6 @@ main {
   --fw-bold: var(--fw-700);
   --fw-x-bold: var(--fw-900);
 
-  --WrapperClamp: clamp(20rem, 50vw, 40rem);
-  --WrapperClamp2: clamp(20rem, 80vw, 60rem);
 }
 
 svg {
@@ -146,6 +148,7 @@ svg {
 
 body {
   font-family: val(--font-base);
+  
 }
 
 .GreenLogo {
@@ -279,7 +282,6 @@ body>header {
 #appreachiationSection {
   text-align: center;
 
-
   h2 {
     margin-top: var(--fs-900);
     padding-bottom: var(--fs-400);
@@ -289,7 +291,6 @@ body>header {
     margin-inline: auto;
     padding-bottom: var(--fs-400);
   }
-
 }
 
 
@@ -299,8 +300,12 @@ section>section.gallery {
   margin-inline: auto;
   margin-bottom: var(--fs-900);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  grid-template: 
+  "pic_one pic_one pic_two pic_three pic_four pic_four" 
+  "pic_one pic_one pic_five pic_five pic_six pic_six";
+
   background-color: white;
 
   img {
@@ -311,11 +316,30 @@ section>section.gallery {
     background-position: center;
   }
 
+
+
   img:nth-child(1) {
-    grid-area: 1 / 1 / span 2 / span 1;
+    grid-area: pic_one
   }
 
+  img:nth-child(2) {
+    grid-area: pic_two
+  }
 
+  img:nth-child(3) {
+    grid-area: pic_three
+  }
+  img:nth-child(4) {
+    grid-area: pic_four
+  }
+
+  img:nth-child(5) {
+    grid-area: pic_five
+  }
+
+  img:nth-child(6) {
+    grid-area: pic_six
+  }
 }
 
 
@@ -378,12 +402,7 @@ button:focus {
   color: var(--clr-green-400) !important
 }
 
-
-
-
-
 section#emailFormSeciton {
-
   background-color: var(--clr-neutral-100);
   padding: var(--fs-400);
 
@@ -469,14 +488,11 @@ section#emailFormSeciton {
     border: solid var(--fs-25) var(--clr-neutral-200);
     border-top: 0;
     border-radius: var(--fs-25);
-
-
     display: grid;
     grid-template-rows: 0.5fr  max-content max-content auto auto;
 
 
-    header picture {
- 
+    header picture { 
       aspect-ratio: 1/1.2;
       width: 100%;
       height: 100%;
@@ -490,7 +506,6 @@ section#emailFormSeciton {
       }
 
       div {
-
         position: absolute;
         background-image: url("/Assets/images/icon-seedling.svg");
         background-size: auto;
@@ -513,30 +528,22 @@ section#emailFormSeciton {
     }
 
     footer {
-
       display: flex;
       gap:1rem;
-
-
       img {
-        height: 5rem;
-
-      
-
-
+        width: var(--fs-900);    
       }
       p {
         margin-block: auto;
+        font-size: var(--fs-200);
       }
-
       .name {
         font-weight: var(--fw-800);
         align-content: end;
         padding-block: var(--fs-25);
+      
   
-      }
-
- 
+      } 
     }
 
 
@@ -643,7 +650,7 @@ section#planingSection {
     justify-items: start;
     grid-area: 3 / 3 / span 1 / span 1;
     padding-inline: var(--fs-400);
-    text-align: end;
+    text-align: center;
     height: fit-content;
   }
 
@@ -661,7 +668,7 @@ footer#PageFooter {
   background-color: var(--clr-green-400) !important;
   color: var(--clr-neutral-100);
   padding-block: var(--fs-700);
-
+  margin-top: 4rem;
   div.wrapper {
 
     display: grid;
@@ -717,7 +724,10 @@ footer#PageFooter {
 
       ul {
         flex-direction: column;
-
+        li {
+          list-style: none;
+          line-height: var(--fs-800);
+        }
 
       }
     }
@@ -731,7 +741,7 @@ footer#PageFooter {
 }
 
 
-@media (width < 900px) {
+@media (width < 1300px) {
   #plantsSection {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -742,7 +752,7 @@ footer#PageFooter {
 }
 
 
-@media (width < 672px) {
+@media (width < 960px) {
  
 
   #plantsSection {
@@ -751,20 +761,24 @@ footer#PageFooter {
 
   }
 
+  section>section.gallery {
+    grid-template-rows:  1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template: 
+    "pic_one pic_two pic_three " 
+    "pic_four pic_five pic_six";    
+  }
+
+
   body>header nav button.hamburgerMenu {
     display: block !important;
 
   }
 
-
-  body>header>nav>ul>li {
+  body>header>.wrapper>nav>ul>li {
     display: none;
   }
 
-  section>section.gallery {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-  }
 
   section#emailFormSeciton {
     div.wrapper {
@@ -792,11 +806,66 @@ footer#PageFooter {
       display: none;
     }
   }
+
+
+
+  section#planingSection {
+
+   
+    div.wrapper {
+      grid-template-columns: auto;
+      width: 100%;
+    }
+  
+    img {
+      grid-area: 1;
+      justify-self: center;
+    }
+
+    h2 {  
+      grid-area: 2;
+      text-align: center;
+    }
+  
+    p {
+      grid-area: 3;  
+      text-align: center;
+    }
+  
+    a.button {  
+      grid-area: 4;
+      display: inline-block;
+      justify-self:end;
+    }
+  
+
+  }
 }
 
-@media (width < 500px) {
+@media (width < 700px) {
+
+#emailFormSeciton form {
+  width: 80%;
+  margin-inline: auto;
+}
+  section>section.gallery {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template: 
+    "pic_one pic_two" 
+    "pic_three pic_four" 
+    "pic_five pic_six";    
+  }
+
+
   #plantsSection {
     display: grid;
     grid-template-columns: 1fr;
+  }  
+
+  :root {
+
+    --WrapperClamp:  100vw;
+    --WrapperClamp2: 90vw;
   }
 }
